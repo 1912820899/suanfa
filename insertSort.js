@@ -32,7 +32,7 @@ function insertSort1(arr){
   for(let i=1;i<length;i++){
     let tmp = arr[i];
     let j = i;
-    while( arr[j-1] > tmp&&j>0){
+    while( tmp > tmp&&j>0){
       arr[j] = arr[j-1];
       j--;
     }
