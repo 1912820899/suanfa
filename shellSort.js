@@ -20,7 +20,7 @@ function shellSort(arr) {
       let tmp = arr[i];
       let j = i;
       while (tmp < arr[j - gap] && j > 0) {
-        arr[i] = arr[j - gap];
+        arr[j] = arr[j - gap];
         j -= gap;
       }
       arr[j] = tmp;
@@ -31,7 +31,8 @@ function shellSort(arr) {
   //6. 完成之后返回数组
   return arr;
 }
+
 // console.log(shell);
 console.time("shell");
-shellSort([11, 4, 22]);
+console.log(shellSort([5,4,3,2,1,123,213,3,2,1]));
 console.timeEnd("shell");

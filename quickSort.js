@@ -15,7 +15,7 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
   arr[end - 1] = tmp;
   pivot = end - 1;
   //3. 定义2个数组指针，分别指向数组左边和倒数第二个元素
-  let left = 0;
+  let left = start;
   let right = pivot;
   //4. 开始循环，如果左边小于右边的话，则退出循环
   while (left < right) {
@@ -32,17 +32,17 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
   }
   //8. 循环完成后一定是左边指针大于右边的指针，所以把左边指针所指的数与枢纽调换位置
   //9 ，这里判断如果左边指针和枢纽位置指针不相同，则调换位置，相同则不管
-  // if (left != pivot) {
+  if (left != pivot) {
   tmp = arr[pivot];
   arr[pivot] = arr[left];
   arr[left] = tmp;
-  // }
-
+  pivot = left;
+  }
   //10. 分别递归调用左边的和右边的
   if (pivot - 1 > start) {
     arr = quickSort(arr, start, pivot - 1);
   }
-  if (pivot + 1 < end - 1) {
+  if (pivot + 1 < end) {
     arr = quickSort(arr, pivot + 1, end);
   }
   return arr;
@@ -71,7 +71,7 @@ function median(arr, start, end) {
   //4. 完成后返回最中间的数的索引（作为枢纽）和 数组
   return { middle, arr };
 }
-let arr = [5,4,3,2,1];
+let arr = [7, 6,12312,55,5,5,5,6,6,6,4,4,4, 5, 4, 3, 1, 2, 1];
 console.time("quickSort");
-quickSort(arr);
+console.log(quickSort(arr));
 console.timeEnd("quickSort");
